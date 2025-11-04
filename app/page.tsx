@@ -10,12 +10,12 @@ export default function HomePage() {
 
   const products = [
     { id: "1", name: "Modern chair", price: 129, image: "/modern chair.jpg" },
-    {
-      id: "2",
-      name: "Modern chair book cover",
-      price: 79,
-      image: "/modern chair book cover.jpg",
-    },
+    // {
+    //   id: "2",
+    //   name: "Modern chair book cover",
+    //   price: 79,
+    //   image: "/modern chair book cover.jpg",
+    // },
     { id: "3", name: "Wood table", price: 265, image: "/wood table.jpg" },
     { id: "4", name: "Wood table", price: 300, image: "/wood table 2.jpg" },
     {
