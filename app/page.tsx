@@ -1,65 +1,71 @@
-import Image from "next/image";
+// app/page.tsx
+"use client";
 
-export default function Home() {
+import ProductList from "../components/ProductList";
+import { products } from "../data/products";
+import { useCart } from "../context/CartContext";
+
+export default function HomePage() {
+  const { add } = useCart();
+
+  const products = [
+    { id: "1", name: "Modern chair", price: 129, image: "/modern chair.jpg" },
+    {
+      id: "2",
+      name: "Modern chair book cover",
+      price: 79,
+      image: "/modern chair book cover2.jpg",
+    },
+    { id: "3", name: "Wood table", price: 265, image: "/wood table.jpg" },
+    { id: "4", name: "Wood table", price: 300, image: "/wood table 2.jpg" },
+    {
+      id: "5",
+      name: "Set Furniture",
+      price: 2499,
+      image: "/1260h-teak-wood-living-room-furniture-1051780.jpg",
+    },
+    {
+      id: "6",
+      name: "Set table",
+      price: 119,
+      image: "/il_570xN.3375092262_rqy3.webp",
+    },
+    {
+      id: "7",
+      name: "Set Chairs",
+      price: 265,
+      image:
+        "/Nova-No-MOQ-High-Quality-Dining-Chair-Modern-Design-Furniture-Hotel-Leisure-Chair-Customize-Sofa-Chairs.avif",
+    },
+    {
+      id: "8",
+      name: "Chair Grey",
+      price: 79,
+      image:
+        "/pngtree-high-quality-image-of-a-modern-grey-chair-for-furniture-displays-png-image_14208022.png",
+    },
+    {
+      id: "9",
+      name: "Set Living Room ",
+      price: 9999,
+      image: "/ribbed-living-room-rug.jpg",
+    },
+    {
+      id: "10",
+      name: "Set table and chair",
+      price: 269,
+      image: "/SIMPLE_BLACK_web_5_902065cd-47fb-4cfa-a521-625982ca7889.webp",
+    },
+  ];
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div>
+      <header className="mb-6">
+        <h1 className="text-3xl font-bold">Featured Products</h1>
+        <p className="text-slate-600 mt-1">A small modern demo store</p>
+      </header>
+
+      <ProductList products={products} onAdd={add} />
     </div>
   );
 }
