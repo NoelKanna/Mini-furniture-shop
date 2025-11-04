@@ -12,11 +12,11 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <article className="bg-white rounded-2xl shadow-sm overflow-hidden">
       <Link href={`/product/${product.id}`}>
-        <div className="aspect-4/3 bg-slate-100">
+        <div className="aspect-square bg-slate-100 overflow-hidden rounded-lg">
           <img
             src={product.image}
             alt={product.name}
-            className="object-cover w-full h-full"
+            className="w-full h-full object-cover"
           />
         </div>
       </Link>
